@@ -1,0 +1,17 @@
+/* Cursor.css */
+.custom-cursor {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background-color: var(--cursor);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.hovering {
+    width: 70px;
+    height: 70px;
+}

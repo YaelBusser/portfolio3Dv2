@@ -48,6 +48,7 @@ small {
 }
 
 :root[data-theme="light"] {
+    --cursor: white;
     --text: #0d0c18;
     --bg: rgb(248 248 252);
     --primary: #5342d1;
@@ -136,7 +137,9 @@ small {
     --accent95: hsl(247, 91%, 64%, 95%);
     --font-scale: 1.333;
 }
+
 :root[data-theme="dark"] {
+    --cursor: white;
     --text: #e8e7f3;
     --bg: #030307;
     --primary: #3e2ebd;
@@ -267,6 +270,13 @@ body {
     transition: all .5s ease-in-out;
 }
 
+.app h1,
+.app span,
+.app p,
+.app a {
+    width: fit-content;
+}
+
 .primary-button {
     padding: 0.5em 2em;
     background-color: var(--primary);
@@ -276,9 +286,9 @@ body {
     font-size: var(--p);
     z-index: 2;
     white-space: nowrap;
-    cursor: pointer;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .secondary-button {
@@ -288,9 +298,9 @@ body {
     border-radius: var(--border05);
     font-size: var(--p);
     z-index: 1;
-    cursor: pointer;
     transition: transform ease 0.2s;
     white-space: nowrap;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }

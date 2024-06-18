@@ -21,6 +21,8 @@
     letter-spacing: 0;
     font-size: 4em;
     color: var(--text);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .content-presentation h1 span{
     color: var(--accent);
