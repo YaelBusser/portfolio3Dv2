@@ -1,0 +1,49 @@
+.presentation{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+.content-presentation{
+    margin-left: 10rem;
+    height: fit-content;
+}
+.content-presentation h1{
+    font-family: Inter, serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1.3;
+    letter-spacing: 0;
+    font-size: 4em;
+    color: var(--text);
+}
+.content-presentation h1 span{
+    color: var(--accent);
+}
+.content-presentation p{
+    font-size: var(--p);
+    font-family: Inter, serif;
+    letter-spacing: normal;
+    text-align: left;
+    line-height: 2.25;
+    box-sizing: border-box;
+    scroll-padding-top: 3em;
+    color: var(--text);
+}
+.buttons{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    height: 3.5rem;
+}
+.my-resume{
+
+}
+.get-in-touch{
+
+}
