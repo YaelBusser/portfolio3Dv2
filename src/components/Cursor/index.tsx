@@ -3,7 +3,6 @@ import {motion, useMotionValue, useSpring} from 'framer-motion';
 import './index.css';
 
 const Cursor = () => {
-    const [position, setPosition] = useState({x: 0, y: 0});
     const [hovering, setHovering] = useState(false);
     const [highStiffness, setHighStiffness] = useState(false); // Nouvel état pour gérer le temps de maintien du stiffness élevé
 
@@ -16,8 +15,8 @@ const Cursor = () => {
 
     useEffect(() => {
         const handleMouseMove = (event: any) => {
-            cursorX.set((event.clientX + window.scrollX) - (hovering ? 30 : 70));
-            cursorY.set((event.clientY + window.scrollY) - (hovering ? 30 : 70));
+            cursorX.set((event.clientX) - (hovering ? 30 : 70));
+            cursorY.set((event.clientY) - (hovering ? 30 : 70));
 
             const target = event.target;
             if (target instanceof Element && (target.tagName === 'A' || target.tagName === 'INPUT')) {
@@ -34,7 +33,7 @@ const Cursor = () => {
         };
     }, [cursorX, cursorY, hovering]);
     useEffect(() => {
-        let timeoutId;
+        let timeoutId: any;
         if (!hovering && highStiffness) {
             timeoutId = setTimeout(() => {
                 setHighStiffness(false);

@@ -1,0 +1,31 @@
+.allProjects{
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+}
+.project{
+    background-color: var(--secondary);
+    width: 40%;
+    height: 100vh;
+    padding: 2rem;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Inter';
+    font-weight: 300;
+}
+.project2{
+    background-color: var(--secondary);
+    width: 20%;
+    padding: 2rem;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Inter';
+    font-weight: 300;
+}
+
+.allProjects h1{
+    font-family: 'Inter';
+    font-weight: 700;
+}

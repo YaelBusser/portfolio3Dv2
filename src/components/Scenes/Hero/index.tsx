@@ -2,7 +2,7 @@ import {Canvas, useFrame, useThree} from "@react-three/fiber";
 import {useMemo, useRef} from "react";
 import * as THREE from 'three'
 import {vertexShader, fragmentShader} from '../../../shaders.js';
-import {OrbitControls} from "@react-three/drei";
+import {OrbitControls, useGLTF} from "@react-three/drei";
 
 const Hero = () => {
     const Particles = () => {
@@ -48,7 +48,7 @@ const Hero = () => {
         );
     };
     const CameraAnimation = () => {
-        const { camera } = useThree();
+        const {camera} = useThree();
         const t = useRef(0);
 
         useFrame((state) => {
@@ -60,10 +60,11 @@ const Hero = () => {
 
         return null;
     };
+
     return (
-        <Canvas dpr={2} style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
+        <Canvas dpr={2} style={{backgroundColor: 'var(--background-color)', color: 'var(--text-color)'}}>
             <OrbitControls makeDefault enableZoom={false}/>
-            <CameraAnimation />
+            <CameraAnimation/>
             <Particles/>
         </Canvas>
     )
