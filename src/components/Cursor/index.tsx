@@ -4,25 +4,31 @@ import './index.css';
 
 const Cursor = () => {
     const [hovering, setHovering] = useState(false);
-    const [highStiffness, setHighStiffness] = useState(false); // Nouvel état pour gérer le temps de maintien du stiffness élevé
+    const [hoveringTheme, setHoveringTheme] = useState(false);
+    const [highStiffness, setHighStiffness] = useState(false);
 
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
-    const springConfig = { stiffness: highStiffness ? 1000 : 200, damping: 20};
+    const springConfig = {stiffness: highStiffness ? 500 : 200, damping: 20};
     const x = useSpring(cursorX, springConfig);
     const y = useSpring(cursorY, springConfig);
 
     useEffect(() => {
         const handleMouseMove = (event: any) => {
-            cursorX.set((event.clientX) - (hovering ? 30 : 70));
-            cursorY.set((event.clientY) - (hovering ? 30 : 70));
+            cursorX.set((event.clientX) - (hovering ? 30 : 50));
+            cursorY.set((event.clientY) - (hovering ? 30 : 50));
 
             const target = event.target;
-            if (target instanceof Element && (target.tagName === 'A' || target.tagName === 'INPUT')) {
+            if (target instanceof Element && (target.tagName === 'A' || target.className === 'content-project' || target.className === 'bg-project')) {
                 setHovering(true);
             } else {
                 setHovering(false);
+            }
+            if (target instanceof Element && (target.className === "toggleTheme" || target.className === "block-theme")){
+                setHoveringTheme(true);
+            }else {
+                setHoveringTheme(false);
             }
         };
 
@@ -31,7 +37,7 @@ const Cursor = () => {
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, [cursorX, cursorY, hovering]);
+    }, [cursorX, cursorY, hovering, hoveringTheme]);
     useEffect(() => {
         let timeoutId: any;
         if (!hovering && highStiffness) {
@@ -45,21 +51,22 @@ const Cursor = () => {
                 clearTimeout(timeoutId);
             }
         };
-    }, [hovering, highStiffness]);
+    }, [hovering, highStiffness, hoveringTheme]);
 
-    // Gérer le changement de stiffness lors du passage de hovering à true ou false
     useEffect(() => {
         if (hovering) {
-            setHighStiffness(true); // Activer stiffness élevé lorsque hovering est true
+            setHighStiffness(true);
         }
     }, [hovering]);
     return (
         <motion.div
-            className={`custom-cursor ${hovering ? 'hovering' : ''}`}
-            style={{
-                translateX: x,
-                translateY: y,
-            }}
+            className={`custom-cursor ${hovering ? 'hovering' : ''} ${hoveringTheme ? 'hovering-theme' : ''}`}
+            style={
+                {
+                    translateX: x,
+                    translateY: y,
+                }
+            }
         />
     );
 };

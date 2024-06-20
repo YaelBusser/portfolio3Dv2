@@ -2,11 +2,17 @@
     position: fixed;
     top: 5rem;
     right: 5rem;
-    z-index: 2;
+    z-index: 9999;
     width: fit-content;
 }
-
-.toggle {
+.block-theme{
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toggleTheme {
     --size: 2rem;
     appearance: none;
     outline: none;
@@ -14,17 +20,17 @@
     height: var(--size);
     box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
     border-radius: 999px;
-    color: var(--primary);
+    color: var(--primaryText);
     transition: all 500ms;
     cursor: pointer;
 }
 
-.toggle:checked {
+.toggleTheme:checked {
     --ray-size: calc(var(--size) * -0.4);
     --offset-orthogonal: calc(var(--size) * 0.65);
     --offset-diagonal: calc(var(--size) * 0.45);
     transform: scale(0.75);
-    color: #fa0;
+    color: var(--primaryText);
     box-shadow: inset 0 0 0 var(--size),
     calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
     var(--offset-orthogonal) 0 0 var(--ray-size),
@@ -35,8 +41,7 @@
     calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0 var(--ray-size),
     var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size);
 }
-.toggle {
-    z-index: 1;
-}
 
+.toggleTheme {
+    z-index: 1;
 }

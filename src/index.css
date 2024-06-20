@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 body {
     font-family: 'Inter';
     font-weight: 400;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
-
 body {
-    font-family: 'Inter';
+    font-family: 'Inter', monospace;
     font-weight: 400;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Inter';
+    font-family: 'Inter', monospace;
     font-weight: 700;
 }
 
@@ -49,27 +47,29 @@ small {
 
 :root[data-theme="light"] {
     --cursor: white;
-    --text: #001a0b;
-    --bg: #f0fff7;
-    --primary: #06fe69;
-    --secondary: #81feef;
+    --primaryText: black;
+    --secondaryText: white;
+    --primaryBackground: white;
+    --secondaryBackground: black;
+    --secondary: rgba(0,0,0,.3);
     --accent: #34fbfe;
     --font-scale: 1.333;
 }
 
 :root[data-theme="dark"] {
     --cursor: white;
-    --text: #e5fff0;
-    --bg: #000f07;
-    --primary: #01f964;
-    --secondary: #017e70;
-    --accent: #01c8cb;
+    --primaryText: white;
+    --secondaryText: black;
+    --primaryBackground: black;
+    --secondaryBackground: white;
+    --secondary: rgba(0,0,0,.3);
+    --accent: #34fbfe;
     --font-scale: 1.333;
 }
 
 
 :root {
-    font-family: 'Inter', ui-sans-serif;
+    font-family: 'Inter', monospace;
     --font-scale: 1.333;
     --p: 1rem;
     --h5: calc(var(--p) * var(--font-scale));
@@ -104,7 +104,7 @@ small {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg);
+    background-color: var(--primaryBackground);
     transition: all .5s ease-in-out;
 }
 
@@ -118,8 +118,8 @@ body {
 
 .primary-button {
     padding: 0.5em 2em;
-    background-color: var(--primary);
-    color: #001a0b;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
     border-radius: var(--border05);
     transition: all .2s ease-in-out;
     font-size: var(--p);
@@ -132,9 +132,10 @@ body {
 
 .secondary-button {
     padding: 0.5em 2em;
-    background-color: var(--secondary);
-    color: var(--text);
+    background-color: var(--primaryBackground);
+    color: var(--primaryText);
     border-radius: var(--border05);
+    border: 1px solid var(--secondaryBackground);
     font-size: var(--p);
     z-index: 1;
     transition: all .2s ease-in-out;
@@ -147,7 +148,7 @@ body {
 .tertiary-button {
     padding: 0.5em 2em;
     background-color: var(--accent);
-    color: var(--text);
+    color: var(--secondaryText);
     border-radius: var(--border05);
     font-size: var(--p);
     z-index: 1;

@@ -16,7 +16,7 @@ const Home = () => {
     const aboutOpacity = useTransform(smoothScrollY, [0, 300], [1, 0]);
     const aboutScale = useTransform(smoothScrollY, [0, 300], [1, 0.9]);
 
-    const projectsY = useTransform(smoothScrollY, [0, 300], [300, 0]);
+    const projectsY = useTransform(smoothScrollY, [0, 300], [300, -500]);
 
     return (
         <>

@@ -1,8 +1,7 @@
-/* Cursor.css */
 .custom-cursor {
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-color: var(--cursor);
     border-radius: 50%;
     pointer-events: none;
@@ -14,4 +13,8 @@
 .custom-cursor.hovering {
     width: 70px;
     height: 70px;
+}
+.custom-cursor.hovering-theme {
+    outline: 1px solid var(--cursor);
+    background-color: transparent;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import "./index.css";
 
 const Header = () => {
@@ -18,7 +18,9 @@ const Header = () => {
 
     return (
         <div className="header">
-            <input onClick={toggleTheme} className="toggle" type="checkbox" checked={theme === 'light'} />
+            <div className={"block-theme"}>
+                <input onClick={toggleTheme} className="toggleTheme" type="checkbox" checked={theme === 'light'}/>
+            </div>
         </div>
     );
 };
