@@ -1,8 +1,8 @@
 import {Canvas, useFrame, useThree} from "@react-three/fiber";
 import {useMemo, useRef} from "react";
 import * as THREE from 'three'
-import {vertexShader, fragmentShader} from '../../../shaders.js';
-import {OrbitControls, useGLTF} from "@react-three/drei";
+import {vertexShader, fragmentShader} from '../../../shaders.ts';
+import {OrbitControls} from "@react-three/drei";
 
 const Hero = () => {
     const Particles = () => {
@@ -26,7 +26,7 @@ const Hero = () => {
 
         useFrame(() => {
             shaderArgs.uniforms.uTime.value++;
-        }, []);
+        });
         const scale = 2;
         return (
             <points scale={[scale, scale, scale]} rotation={[-Math.PI / 2, 0, 0]}>
