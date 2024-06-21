@@ -1,4 +1,5 @@
 import Hero from "../../components/Scenes/Hero";
+import HeadMe from "../../components/Scenes/HeadMe";
 import "./index.css";
 import About from "../../components/About";
 import Header from "../../components/Header";
