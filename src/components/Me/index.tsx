@@ -7,7 +7,7 @@ const Me = () => {
         <div className={"container-me"}>
             <div className={"card-photo"}>
                 <Canvas>
-                    <Model url={"/public/models/me.glb"} />
+                    <Model url={`${import.meta.env.VITE_PUBLIC_ROUTE}/models/me.glb`} />
                 </Canvas>
             </div>
         </div>
