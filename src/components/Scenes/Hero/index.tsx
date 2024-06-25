@@ -1,10 +1,12 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useMemo, useRef, useEffect } from "react";
-import * as THREE from 'three';
-import { vertexShader, fragmentShader } from '../../../shaders.ts';
-import { OrbitControls } from "@react-three/drei";
+import {Canvas, useFrame, useThree} from "@react-three/fiber";
+import {useRef, useEffect} from "react";
+//import { useMemo } from "react";
+//import * as THREE from 'three';
+//import { vertexShader, fragmentShader } from '../../../shaders.ts';
+import {OrbitControls} from "@react-three/drei";
+
 const Hero = () => {
-    const Particles = () => {
+    /*const Particles = () => {
         const planePositions = useMemo(() => {
             const planeGeometry = new THREE.PlaneGeometry(6, 6, 128, 128);
             const positions = planeGeometry.attributes.position.array;
@@ -43,9 +45,9 @@ const Hero = () => {
             </points>
         );
     };
-
+*/
     const CameraAnimation = () => {
-        const { camera } = useThree();
+        const {camera} = useThree();
         const scrollPosition = useRef(0);
 
         const handleScroll = () => {
@@ -71,10 +73,9 @@ const Hero = () => {
     };
 
     return (
-        <Canvas dpr={2} style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
-            <OrbitControls makeDefault enableZoom={false} />
-            <CameraAnimation />
-            <Particles />
+        <Canvas dpr={2} style={{backgroundColor: 'var(--background-color)', color: 'var(--text-color)'}}>
+            <OrbitControls makeDefault enableZoom={false}/>
+            <CameraAnimation/>
         </Canvas>
     );
 };
