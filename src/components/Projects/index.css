@@ -1,24 +1,22 @@
 .allProjects {
-    width: 85%;
     background-color: transparent;
     display: flex;
-    justify-content: space-around;
-    margin-left: auto;
-    margin-right: auto;
     gap: 3rem;
+    height: 80vh;
 }
+.project, .project2{
+    flex-shrink: 0;
 
+}
 .project {
-    width: 55%;
-    height: 50vw;
+    width: 50rem;
     position: relative;
     overflow: hidden;
     border-radius: 20px;
 }
 
 .project2 {
-    width: 25%;
-    height: 40vw;
+    width: 20vw;
     position: relative;
     overflow: hidden;
     border-radius: 20px;

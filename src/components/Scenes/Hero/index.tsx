@@ -1,32 +1,29 @@
-import {Canvas, useFrame, useThree} from "@react-three/fiber";
-import {useMemo, useRef} from "react";
-import * as THREE from 'three'
-import {vertexShader, fragmentShader} from '../../../shaders.ts';
-import {OrbitControls} from "@react-three/drei";
-
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useMemo, useRef, useEffect } from "react";
+import * as THREE from 'three';
+import { vertexShader, fragmentShader } from '../../../shaders.ts';
+import { OrbitControls } from "@react-three/drei";
+import Model from "../../TemplateModel";
 const Hero = () => {
     const Particles = () => {
         const planePositions = useMemo(() => {
             const planeGeometry = new THREE.PlaneGeometry(6, 6, 128, 128);
             const positions = planeGeometry.attributes.position.array;
-
             return positions;
         }, []);
 
-        const shaderArgs = useMemo(
-            () => ({
-                uniforms: {
-                    uTime: {value: 0},
-                },
-                vertexShader,
-                fragmentShader
-            }),
-            []
-        );
+        const shaderArgs = useMemo(() => ({
+            uniforms: {
+                uTime: { value: 0 },
+            },
+            vertexShader,
+            fragmentShader,
+        }), []);
 
         useFrame(() => {
             shaderArgs.uniforms.uTime.value++;
         });
+
         const scale = 2;
         return (
             <points scale={[scale, scale, scale]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -47,14 +44,27 @@ const Hero = () => {
             </points>
         );
     };
-    const CameraAnimation = () => {
-        const {camera} = useThree();
-        const t = useRef(0);
 
-        useFrame((state) => {
-            t.current += state.clock.getDelta();
-            camera.position.x = Math.sin(t.current) * 5;
-            camera.position.z = Math.cos(t.current) * 5;
+    const CameraAnimation = () => {
+        const { camera } = useThree();
+        const scrollPosition = useRef(0);
+
+        const handleScroll = () => {
+            const scrollFactor = window.scrollY / document.body.scrollHeight;
+            scrollPosition.current = scrollFactor * Math.PI * 2;
+        };
+
+        useEffect(() => {
+            window.addEventListener('scroll', handleScroll);
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }, []);
+
+        useFrame(() => {
+            const t = scrollPosition.current;
+            camera.position.x = Math.sin(t) * 5;
+            camera.position.z = Math.cos(t) * 5;
             camera.lookAt(0, 0, 0);
         });
 
@@ -62,12 +72,13 @@ const Hero = () => {
     };
 
     return (
-        <Canvas dpr={2} style={{backgroundColor: 'var(--background-color)', color: 'var(--text-color)'}}>
-            <OrbitControls makeDefault enableZoom={false}/>
-            <CameraAnimation/>
-            <Particles/>
+        <Canvas dpr={2} style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
+            <OrbitControls makeDefault enableZoom={false} />
+            <CameraAnimation />
+            <Particles />
+            <Model url={"/models/bedroom.glb"} />
         </Canvas>
-    )
-}
+    );
+};
 
 export default Hero;

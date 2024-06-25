@@ -126,6 +126,7 @@ void main() {
 
 export const fragmentShader = `
 uniform float uTime;
+uniform vec3 uColor; // Ajout de l'uniforme pour la couleur
 
 vec3 interpolateColors(vec3 color1, vec3 color2, float factor) {
   return mix(color1, color2, factor);
@@ -149,6 +150,8 @@ void main() {
   } else {
     color = interpolateColors(color3, color1, factor);
   }
+
+  color = mix(color, uColor, 0.5); // Mix with the theme color
 
   gl_FragColor = vec4(color, alpha);
 }

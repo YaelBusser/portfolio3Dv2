@@ -5,10 +5,11 @@
     left: 0;
     right: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    z-index: 1;
 }
 .content-presentation{
-    margin-left: 10rem;
+    margin-left: 10vw;
     height: fit-content;
     margin-bottom: 15vh;
 }
@@ -37,6 +38,7 @@
     box-sizing: border-box;
     scroll-padding-top: 3em;
     color: var(--primaryText);
+    text-overflow: ellipsis;
 }
 .buttons{
     display: flex;
@@ -49,4 +51,10 @@
 }
 .get-in-touch{
 
+}
+
+@media screen and (max-width: 900px) {
+    .content-presentation {
+        width: 100vw;
+    }
 }

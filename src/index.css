@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+html,
 body {
     font-family: 'Inter', monospace;
     font-weight: 400;
+    overscroll-behavior: none;
+    -ms-overflow-style: none;
 }
 
 body {
@@ -51,7 +54,7 @@ small {
     --secondaryText: white;
     --primaryBackground: white;
     --secondaryBackground: black;
-    --secondary: rgba(0,0,0,.3);
+    --secondary: rgba(0, 0, 0, .3);
     --accent: #34fbfe;
     --font-scale: 1.333;
 }
@@ -62,7 +65,7 @@ small {
     --secondaryText: black;
     --primaryBackground: black;
     --secondaryBackground: white;
-    --secondary: rgba(0,0,0,.3);
+    --secondary: rgba(0, 0, 0, .3);
     --accent: #34fbfe;
     --font-scale: 1.333;
 }
@@ -160,9 +163,14 @@ body {
 }
 
 .primary-button:hover {
-    box-shadow: 5px 20px 150px 0px var(--primary);
+    box-shadow: 5px 20px 150px 0px var(--primaryText);
 }
 
 .secondary-button:hover {
-    box-shadow: 5px 20px 150px 0px var(--secondary);
+    box-shadow: 5px 20px 150px 0px var(--secondaryText);
+}
+
+
+@media screen and (max-width: 900px) {
+
 }
