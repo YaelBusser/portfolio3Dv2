@@ -3,7 +3,6 @@ import { useMemo, useRef, useEffect } from "react";
 import * as THREE from 'three';
 import { vertexShader, fragmentShader } from '../../../shaders.ts';
 import { OrbitControls } from "@react-three/drei";
-import Model from "../../TemplateModel";
 const Hero = () => {
     const Particles = () => {
         const planePositions = useMemo(() => {
@@ -76,7 +75,6 @@ const Hero = () => {
             <OrbitControls makeDefault enableZoom={false} />
             <CameraAnimation />
             <Particles />
-            <Model url={"/models/bedroom.glb"} />
         </Canvas>
     );
 };
