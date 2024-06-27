@@ -3,7 +3,6 @@ import ResizeObserver from "resize-observer-polyfill";
 import { motion, useTransform, useSpring, useMotionValue, useScroll } from "framer-motion";
 import "./index.css";
 import { useScrollPercentage } from "react-scroll-percentage";
-import Header from "../../components/Header";
 import Hero from "../../components/Scenes/Hero";
 import About from "../../components/About";
 import Projects from "../../components/Projects";
