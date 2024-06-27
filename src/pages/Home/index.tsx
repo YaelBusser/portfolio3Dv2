@@ -64,7 +64,6 @@ const Home = () => {
     return (
         <div ref={containerRef}>
             <Nav/>
-            <Header />
             <div className="hero">
                 <Hero />
             </div>

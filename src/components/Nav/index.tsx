@@ -1,11 +1,13 @@
 import "./index.css";
+import Header from "../Header";
 
 const Nav = () => {
     return (
         <nav>
-            <a href={"ok"}>About</a>
+            <button>About</button>
             <button>Projects</button>
             <button>Contact</button>
+            <Header />
         </nav>
     )
 }

@@ -83,8 +83,8 @@ const About = () => {
                     <a className={"primary-button"}>Get in touch</a>
                 </div>
                 <div className={"container-parallaxtext"}>
-                    <ParallaxText baseVelocity={-5}>JS PHP HTML CSS LARAVEL</ParallaxText>
-                    <ParallaxText baseVelocity={5}>REACT VUEJS MATERIALUI C# THREEJS</ParallaxText>
+                    <ParallaxText baseVelocity={-5}>JS PHP HTML CSS LARAVEL REACT-NATIVE</ParallaxText>
+                    <ParallaxText baseVelocity={5}>REACT VUEJS MATERIALUI C# THREEJS R3F FRAMER-MOTION</ParallaxText>
                 </div>
             </div>
         </div>

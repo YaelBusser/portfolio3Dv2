@@ -1,9 +1,36 @@
-nav{
+nav {
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
     color: var(--primaryText);
     gap: 1rem;
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 5rem;
-    z-index: 999;
+    z-index: 99;
+    width: 100%;
+}
+
+nav button {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--primaryText);
+    font-family: "Inter", monospace;
+    border: none;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+nav button:after {
+    display: block;
+    content: '';
+    padding-bottom: .5rem;
+    border-bottom: solid 3px #fff;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+nav button:hover:after {
+    transform: scaleX(1);
 }

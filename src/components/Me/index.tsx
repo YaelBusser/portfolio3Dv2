@@ -21,8 +21,6 @@ const Me = () => {
     );
 }
 
-export default Me;
-
 {
     /*
 <div className={"container-model"}>
@@ -40,3 +38,4 @@ export default Me;
 </div>
     */
 }
+export default Me;

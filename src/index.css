@@ -151,6 +151,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .tertiary-button {
@@ -165,6 +166,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .primary-button:hover {

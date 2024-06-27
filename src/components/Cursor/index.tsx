@@ -16,18 +16,18 @@ const Cursor = () => {
 
     useEffect(() => {
         const handleMouseMove = (event: any) => {
-            cursorX.set((event.clientX) - (hovering ? 30 : 50));
-            cursorY.set((event.clientY) - (hovering ? 30 : 50));
+            cursorX.set((event.clientX) - (hovering ? 20 : 50));
+            cursorY.set((event.clientY) - (hovering ? 20 : 50));
 
             const target = event.target;
-            if (target instanceof Element && (target.tagName === 'A' || target.className === 'btn-nav' || target.className === 'content-project' || target.className === 'bg-project')) {
+            if (target instanceof Element && (target.tagName === 'A' || target.tagName === 'BUTTON' || target.className === 'content-project' || target.className === 'bg-project')) {
                 setHovering(true);
             } else {
                 setHovering(false);
             }
-            if (target instanceof Element && (target.className === "toggleTheme" || target.className === "block-theme")){
+            if (target instanceof Element && (target.className === "toggleTheme" || target.className === "block-theme")) {
                 setHoveringTheme(true);
-            }else {
+            } else {
                 setHoveringTheme(false);
             }
         };
