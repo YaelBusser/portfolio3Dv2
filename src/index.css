@@ -6,6 +6,7 @@ body {
     font-weight: 400;
     overscroll-behavior: none;
     -ms-overflow-style: none;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -131,6 +132,8 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .secondary-button {

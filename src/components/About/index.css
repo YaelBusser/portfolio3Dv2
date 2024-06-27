@@ -1,19 +1,22 @@
-.presentation{
+.presentation {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     z-index: 1;
+    overflow-x: hidden;
 }
-.content-presentation{
+
+.content-presentation {
     margin-left: 10vw;
     height: fit-content;
     margin-bottom: 15vh;
 }
-.content-presentation h1{
+
+.content-presentation h1 {
     font-family: Inter, serif;
     white-space: nowrap;
     overflow: hidden;
@@ -26,10 +29,12 @@
     margin-top: 0;
     margin-bottom: 0;
 }
-.content-presentation h1 span{
+
+.content-presentation h1 span {
     color: var(--accent);
 }
-.content-presentation p{
+
+.content-presentation p {
     font-size: 2em;
     font-family: Inter, serif;
     letter-spacing: normal;
@@ -40,17 +45,59 @@
     color: var(--primaryText);
     text-overflow: ellipsis;
 }
-.buttons{
+
+.buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     height: 3.5rem;
 }
-.my-resume{
+
+.my-resume {
 
 }
-.get-in-touch{
 
+.get-in-touch {
+
+}
+
+.container-parallaxtext {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+}
+
+.parallax {
+    overflow: hidden;
+    position: relative;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    margin: 0;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    color: var(--primaryText);
+    width: 100%;
+}
+.parallax p{
+    border: 1px solid green;
+    width: fit-content;
+    font-size: 2rem;
+}
+.parallax .scroller {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 64px;
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    will-change: transform;
+}
+
+.parallax span {
+    display: block;
+    margin-right: 30px;
 }
 
 @media screen and (max-width: 900px) {

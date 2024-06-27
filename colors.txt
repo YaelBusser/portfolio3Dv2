@@ -6,14 +6,3 @@ https://codesandbox.io/p/sandbox/framer-motion-3d-usescroll-xibe0t?file=%2Fsrc%2
 
 
 https://codesandbox.io/s/framer-motion-horizontal-scroll-by-scrolling-vertically-forked-473s1?file=/src/SmoothScroll.js
-
-
-<Header/>
-                <div className="hero">
-                    <Hero/>
-                </div>
-                <motion.section
-                    className="about"
-                >
-                    <About/>
-                </motion.section>

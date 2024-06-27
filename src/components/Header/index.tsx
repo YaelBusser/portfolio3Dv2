@@ -19,7 +19,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className={"block-theme"}>
-                <input onClick={toggleTheme} className="toggleTheme" type="checkbox" checked={theme === 'light'}/>
+                <input onClick={toggleTheme} onChange={() => toggleTheme} className="toggleTheme" type="checkbox" checked={theme === 'light'}/>
             </div>
         </div>
     );
