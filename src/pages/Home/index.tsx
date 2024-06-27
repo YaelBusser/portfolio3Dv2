@@ -8,6 +8,7 @@ import About from "../../components/About";
 import Projects from "../../components/Projects";
 import Me from "../../components/Me";
 import Nav from "../../components/Nav";
+import Socials from "../../components/Socials";
 
 const Home = () => {
     const scrollRef = useRef<any>(null);
@@ -51,7 +52,7 @@ const Home = () => {
         scrollPerc.set(percentage);
     }, [percentage]);
 
-    const transformX = useTransform(scrollPerc, [0, 0.75], [800, -(scrollRange - viewportW)]);
+    const transformX = useTransform(scrollPerc, [-0.3, .7], [2000, -(scrollRange - viewportW)]);
     const projectsOpacity = useTransform(scrollPerc, [0.7, 1], [1, 0]);
     const projectsZIndex = useTransform(scrollPerc, [0.5, 0.75], [-1, 1]);
     const projectsY = useTransform(scrollPerc, [0, 5], ["0%", "-10%"]);
@@ -63,11 +64,12 @@ const Home = () => {
     return (
         <div ref={containerRef}>
             <Nav/>
+            <Socials/>
             <div className="hero">
                 <Hero />
             </div>
             <div className="scroll-container">
-            <motion.section className="about" style={{ opacity: aboutOpacity, scale: aboutScale }}>
+            <motion.section id={"about"} className="about" style={{ opacity: aboutOpacity, scale: aboutScale }}>
                 <About />
             </motion.section>
             </div>

@@ -112,6 +112,7 @@ body {
     padding: 0;
     background-color: var(--primaryBackground);
     transition: all .5s ease-in-out;
+    overflow-x: hidden;
 }
 
 .app h1,

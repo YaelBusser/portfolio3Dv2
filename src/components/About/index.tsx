@@ -77,7 +77,7 @@ const About = () => {
         <div className={"presentation"}>
             <div className={"content-presentation"}>
                 <h1>Hi, I'm <br />Yaël Busser</h1>
-                <p>A fullstack developer!</p>
+                <p>Junior web & mobile developer</p>
                 <div className={"buttons"}>
                     <a className={"secondary-button"}>My resume</a>
                     <a className={"primary-button"}>Get in touch</a>
