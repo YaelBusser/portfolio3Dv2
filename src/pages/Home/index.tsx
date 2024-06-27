@@ -8,6 +8,7 @@ import Hero from "../../components/Scenes/Hero";
 import About from "../../components/About";
 import Projects from "../../components/Projects";
 import Me from "../../components/Me";
+import Nav from "../../components/Nav";
 
 const Home = () => {
     const scrollRef = useRef<any>(null);
@@ -62,6 +63,7 @@ const Home = () => {
 
     return (
         <div ref={containerRef}>
+            <Nav/>
             <Header />
             <div className="hero">
                 <Hero />

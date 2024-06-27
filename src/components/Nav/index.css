@@ -1,0 +1,9 @@
+nav{
+    display: flex;
+    color: var(--primaryText);
+    gap: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    z-index: 999;
+}

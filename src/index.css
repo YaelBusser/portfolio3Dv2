@@ -58,6 +58,7 @@ small {
     --secondary: rgba(0, 0, 0, .3);
     --accent: #34fbfe;
     --font-scale: 1.333;
+    --bgBlur: rgba(0,0,0,0.5);
 }
 
 :root[data-theme="dark"] {
@@ -69,6 +70,7 @@ small {
     --secondary: rgba(0, 0, 0, .3);
     --accent: #34fbfe;
     --font-scale: 1.333;
+    --bgBlur: rgba(255,255,255,0.5);
 }
 
 

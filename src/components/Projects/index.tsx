@@ -43,18 +43,7 @@ const Projects = () => {
                         <img className={"bg-project"} src={"/images/aupresdevous.png"} alt={"Aupres De Vous"}/>
                     </div>
                 </div>
-                <div className={"project2"}>
-                    <div className={"content-project"}>
-                        <div className={"top"}>
-                            <p className={"text"}>Project 001<br/>2024 <FontAwesomeIcon icon={faCalendarDays}/></p>
-                            <p className={"button-click"}>
-                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={"arrow"}/>
-                                <FontAwesomeIcon icon={faCircle} className={"circle"}/>
-                            </p>
-                        </div>
-                        <img className={"bg-project"} src={"/images/aupresdevous.png"} alt={"Aupres De Vous"}/>
-                    </div>
-                </div>
+
             </div>
         </>
     )
