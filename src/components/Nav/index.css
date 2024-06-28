@@ -1,14 +1,14 @@
 nav {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     color: var(--primaryText);
     gap: 1rem;
     position: fixed;
     top: 1rem;
     right: 5rem;
     z-index: 99;
-    width: 100%;
+    width: fit-content;
 }
 
 nav button {
@@ -21,8 +21,11 @@ nav button {
     text-transform: uppercase;
     margin-top: 1rem;
 }
-
-nav button:after {
+nav button:hover {
+    color: var(--primaryText);
+    opacity: 0.9;
+}
+.nav-primary button:after {
     display: block;
     content: '';
     padding-bottom: .5rem;
@@ -33,4 +36,35 @@ nav button:after {
 
 nav button:hover:after {
     transform: scaleX(1);
+}
+
+.nav-primary {
+    display: flex;
+    gap: 1rem;
+}
+
+.back-button {
+    margin-top: .5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.back-button .icon {
+    font-size: 1.5em;
+    pointer-events: none;
+    transition: all .2s ease-in-out;
+}
+
+.back-button p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    pointer-events: none;
+}
+
+.back-button:hover .icon {
+    transform: translateX(-30%);
 }

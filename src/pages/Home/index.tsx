@@ -7,7 +7,6 @@ import Hero from "../../components/Scenes/Hero";
 import About from "../../components/About";
 import Projects from "../../components/Projects";
 import Me from "../../components/Me";
-import Nav from "../../components/Nav";
 import Socials from "../../components/Socials";
 
 const Home = () => {
@@ -63,7 +62,6 @@ const Home = () => {
 
     return (
         <div ref={containerRef}>
-            <Nav/>
             <Socials/>
             <div className="hero">
                 <Hero />

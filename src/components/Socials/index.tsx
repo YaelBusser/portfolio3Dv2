@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons"; // Importez faLinkedin depuis free-brands-svg-icons
+import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import "./index.css";
 
 const Socials = () => {
@@ -7,11 +7,11 @@ const Socials = () => {
         <div className="socials">
             <div className={"content-socials"}>
                 <a href="https://github.com/yaelbusser" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faGithub} className="icon"/>
+                    <FontAwesomeIcon icon={faGithub} className="icon-social"/>
                 </a>
-                <a href="https://www.linkedin.com/votre_nom_utilisateur_linkedin" target="_blank"
+                <a href="https://linkedin.com/in/ya%C3%ABl-busser/" target="_blank"
                    rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faLinkedin} className="icon"/>
+                    <FontAwesomeIcon icon={faLinkedin} className="icon-social"/>
                 </a>
             </div>
         </div>

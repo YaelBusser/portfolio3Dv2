@@ -1,5 +1,6 @@
 .header {
     width: fit-content;
+    margin-top: .5rem;
 }
 .block-theme{
     width: 6rem;

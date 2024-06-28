@@ -4,6 +4,7 @@ import "./index.css";
 import {Suspense, useEffect, useState} from "react";
 import Cursor from "./components/Cursor";
 import Loader from "./components/Loader";
+import Nav from "./components/Nav";
 
 const App = () => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -32,6 +33,7 @@ const App = () => {
                             <Loader/>
                         ) : (
                             <>
+                                <Nav/>
                                 <Cursor/>
                                 <Routes/>
                             </>

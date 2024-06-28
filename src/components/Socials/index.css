@@ -1,4 +1,4 @@
-.socials{
+.socials {
     position: fixed;
     left: 2rem;
     height: 100%;
@@ -6,7 +6,8 @@
     align-items: center;
     z-index: 99;
 }
-.content-socials{
+
+.content-socials {
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -14,7 +15,10 @@
     justify-content: center;
     gap: 1rem;
 }
-.socials .icon{
+
+.socials .icon-social {
     color: var(--primaryText);
-    font-size: 2em;
+    font-size: 2.5em;
+    pointer-events: none;
 }
+
