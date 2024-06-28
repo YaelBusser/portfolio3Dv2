@@ -1,9 +1,13 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo } from "react";
+import {Canvas, useFrame} from "@react-three/fiber";
+import {useMemo} from "react";
 import * as THREE from 'three';
-import { vertexShader, fragmentShader } from './shaders';
+import {fragmentShader, vertexShader} from './shaders';
+import {useMediaQuery, useTheme} from '@mui/material';
 
 const Hero = () => {
+    const theme = useTheme();
+    const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
+
     const Particles = () => {
         const shaderArgs = useMemo(() => ({
             uniforms: {
@@ -16,8 +20,7 @@ const Hero = () => {
 
         const planePositions = useMemo(() => {
             const planeGeometry = new THREE.PlaneGeometry(6, 6, 128, 128);
-            const positions = planeGeometry.attributes.position.array;
-            return positions;
+            return planeGeometry.attributes.position.array;
         }, []);
 
         useFrame(({ clock }) => {
@@ -46,9 +49,11 @@ const Hero = () => {
     };
 
     return (
-        <Canvas style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
-            <Particles />
-        </Canvas>
+        !isMdDown && (
+            <Canvas style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
+                <Particles />
+            </Canvas>
+        )
     );
 };
 
