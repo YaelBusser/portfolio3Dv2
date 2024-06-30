@@ -5,9 +5,12 @@ import {Suspense, useEffect, useState} from "react";
 import Cursor from "./components/Cursor";
 import Loader from "./components/Loader";
 import Nav from "./components/Nav";
+import {useMediaQuery, useTheme} from "@mui/material";
 
 const App = () => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const theme = useTheme();
+    const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
 
     useEffect(() => {
         // Simule le chargement complet de la page
@@ -29,7 +32,7 @@ const App = () => {
             <Suspense fallback={null}>
                 <div className="app">
                     {
-                        !isLoaded ? (
+                        !isLoaded && !isMdDown ? (
                             <Loader/>
                         ) : (
                             <>
