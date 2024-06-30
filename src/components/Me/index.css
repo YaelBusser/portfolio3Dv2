@@ -27,7 +27,7 @@
     border-radius: 20px;
     cursor: crosshair;
     filter: grayscale(1);
-    transition: all .2s cubic-bezier(0.77, -0.01, 0, 1.02) .2s;
+    transition: all .5s cubic-bezier(0.77, -0.01, 0, 1.02) .2s;
 }
 
 .card-left:hover .photo {
@@ -45,7 +45,8 @@
 }
 
 .card-right h2 {
-    font-weight: 500;
+    font-weight: 400;
+    text-transform: uppercase;
     text-align: left;
     width: 100%;
     color: var(--primaryText);
@@ -60,9 +61,10 @@
 .card-right .my-hobbies {
     color: var(--primaryText);
 }
+
 .card-right .my-hobbies .icons {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
     justify-content: flex-start;
     align-items: center;
 }

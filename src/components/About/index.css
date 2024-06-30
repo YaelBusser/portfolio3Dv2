@@ -80,11 +80,13 @@
     color: var(--primaryText);
     width: 100%;
 }
-.parallax p{
+
+.parallax p {
     border: 1px solid green;
     width: fit-content;
     font-size: 2rem;
 }
+
 .parallax .scroller {
     font-weight: 600;
     text-transform: uppercase;

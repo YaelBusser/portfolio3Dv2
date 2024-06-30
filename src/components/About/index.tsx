@@ -8,17 +8,17 @@ import {
     useAnimationFrame,
     motion
 } from "framer-motion";
-import { wrap } from "@motionone/utils";
-import { useRef } from "react";
+import {wrap} from "@motionone/utils";
+import {useRef} from "react";
 
 interface ParallaxProps {
     children: string;
     baseVelocity: number;
 }
 
-function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
+function ParallaxText({children, baseVelocity = 100}: ParallaxProps) {
     const baseX = useMotionValue(0);
-    const { scrollY } = useScroll();
+    const {scrollY} = useScroll();
     const scrollVelocity = useVelocity(scrollY);
     const smoothVelocity = useSpring(scrollVelocity, {
         damping: 50,
@@ -63,7 +63,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
      */
     return (
         <div className="parallax">
-            <motion.div className="scroller" style={{ x }}>
+            <motion.div className="scroller" style={{x}}>
                 <span>{children} </span>
                 <span>{children} </span>
                 <span>{children} </span>
@@ -72,15 +72,28 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
         </div>
     );
 }
+
 const About = () => {
     return (
         <div className={"presentation"}>
             <div className={"content-presentation"}>
-                <h1>Hi, I'm <br />Yaël Busser</h1>
+                <h1>Hi, I'm <br/>Yaël Busser</h1>
                 <p>Junior web & mobile developer</p>
                 <div className={"buttons"}>
-                    <a className={"secondary-button"}>My resume</a>
-                    <a className={"primary-button"}>Get in touch</a>
+                    <motion.a
+                        className={"secondary-button"}
+                        href="/files/cv_yael_busser.pdf"
+                        download="Yael_Busser_Resume.pdf"
+                        whileTap={{scale: 0.95}}
+                    >
+                        My resume
+                    </motion.a>
+                    <motion.a
+                        className={"primary-button"}
+                        whileTap={{scale: 0.95}}
+                    >
+                        Get in touch
+                    </motion.a>
                 </div>
                 <div className={"container-parallaxtext"}>
                     <ParallaxText baseVelocity={-5}>JS PHP HTML CSS LARAVEL REACT-NATIVE</ParallaxText>

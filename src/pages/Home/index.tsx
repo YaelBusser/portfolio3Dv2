@@ -9,6 +9,7 @@ import About from '../../components/About';
 import Projects from '../../components/Projects';
 import Me from '../../components/Me';
 import Socials from '../../components/Socials';
+import Contact from "../../components/Contact";
 
 const pageTransition = {
     initial: {opacity: 0, y: 100},
@@ -17,8 +18,8 @@ const pageTransition = {
 };
 
 const Home = () => {
-    const scrollRef = useRef(null);
-    const ghostRef = useRef(null);
+    const scrollRef = useRef<any>(null);
+    const ghostRef = useRef<any>(null);
     const [scrollRange, setScrollRange] = useState(0);
     const [viewportW, setViewportW] = useState(0);
     const scrollPerc = useMotionValue(0);
@@ -29,7 +30,7 @@ const Home = () => {
         }
     }, [scrollRef]);
 
-    const onResize = useCallback((entries) => {
+    const onResize = useCallback((entries: any) => {
         for (let entry of entries) {
             setViewportW(entry.contentRect.width);
         }
@@ -57,14 +58,17 @@ const Home = () => {
         scrollPerc.set(percentage);
     }, [percentage]);
 
-    const transformX = useTransform(scrollPerc, [-0.3, 0.67], [3000, -(scrollRange - viewportW)]);
-    const projectsOpacity = useTransform(scrollPerc, [0.7, 1], [1, -1]);
+    const transformX = useTransform(scrollPerc, [-0.3, 0.55], [3000, -(scrollRange - viewportW)]);
+    const projectsOpacity = useTransform(scrollPerc, [0.6, 0.8], [1, -1]);
     const projectsZIndex = useTransform(scrollPerc, [0.5, 0.75], [-1, 1]);
-    const projectsY = useTransform(scrollPerc, [0, 5], ['0%', '-10%']);
+    const projectsY = useTransform(scrollPerc, [0, 5], ['0%', '0%']);
     const springX = useSpring(transformX, {damping: 15, mass: 0.27, stiffness: 100});
     const springOpacity = useSpring(projectsOpacity, {damping: 15, mass: 0.27, stiffness: 100});
     const springY = useSpring(projectsY, {damping: 15, mass: 0.27, stiffness: 100});
     const springZIndex = useSpring(projectsZIndex, {damping: 15, mass: 0.27, stiffness: 100});
+
+    const meOpacity = useTransform(smoothScrollY, [3700, 4100], [1, 0]);
+    const contactOpacity = useTransform(smoothScrollY, [3500, 4000], [0, 1]);
 
     return (
         <motion.div
@@ -96,8 +100,17 @@ const Home = () => {
             <div className="scroll-container">
                 <motion.div
                     className="me"
+                    style={{opacity: meOpacity}}
                 >
                     <Me/>
+                </motion.div>
+            </div>
+            <div className="scroll-container">
+                <motion.div
+                    className="contact"
+                    style={{opacity: contactOpacity}}
+                >
+                    <Contact/>
                 </motion.div>
             </div>
         </motion.div>
