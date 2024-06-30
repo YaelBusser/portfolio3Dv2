@@ -20,7 +20,7 @@ const Cursor = () => {
             cursorY.set((event.clientY) - (hovering ? 20 : 50));
 
             const target = event.target;
-            if (target instanceof Element && (target.tagName === 'A' || target.className === 'back-button' || target.className === 'icon-social' || target.tagName === 'BUTTON' || target.className === 'content-project' || target.className === 'bg-project')) {
+            if (target instanceof Element && (target.tagName === 'A' || target.className  === 'photo' || target.className === 'back-button' || target.className === 'icon-social' || target.tagName === 'BUTTON' || target.className === 'content-project' || target.className === 'bg-project')) {
                 setHovering(true);
             } else {
                 setHovering(false);

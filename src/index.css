@@ -50,10 +50,10 @@ small {
 }
 
 :root[data-theme="light"] {
-    --cursor: white;
+    --cursor: #e3e3e3;
     --primaryText: black;
-    --secondaryText: white;
-    --primaryBackground: white;
+    --secondaryText: #e3e3e3;
+    --primaryBackground: #e3e3e3;
     --secondaryBackground: black;
     --secondary: rgba(0, 0, 0, .3);
     --accent: #34fbfe;
@@ -62,11 +62,11 @@ small {
 }
 
 :root[data-theme="dark"] {
-    --cursor: white;
-    --primaryText: white;
+    --cursor: #e3e3e3;
+    --primaryText: #e3e3e3;
     --secondaryText: black;
     --primaryBackground: black;
-    --secondaryBackground: white;
+    --secondaryBackground: #e3e3e3;
     --secondary: rgba(0, 0, 0, .3);
     --accent: #34fbfe;
     --font-scale: 1.333;

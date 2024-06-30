@@ -1,61 +1,72 @@
-.container-me{
+.container-me {
     display: flex;
-    gap: 5rem;
     align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
     height: 100%;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
-.card-left{
+
+.card-left {
     position: relative;
-    width: 50%;
+    width: 30rem;
     height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 20px;
     overflow: hidden;
 }
-.card-left .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+
+.photo {
     width: 100%;
     height: 100%;
-    background: var(--bgBlur);
-    backdrop-filter: blur(10px);
-    z-index: 1;
-    transition: all .2s ease-in-out;
-}
-.content-left{
-    width: 80%;
-    height: 80%;
-    background-color: var(--secondaryText);
-    border-radius: 10px;
-    position: relative;
+    object-fit: cover;
     z-index: 2;
-}
-.container-model{
-    width: 100%;
-    height: 100%;
-}
-
-.photo{
-    width: 10rem;
-    height: 10rem;
-    object-fit: contain;
-    border-radius: 50%;
-}
-.profile{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
+    position: relative;
+    border-radius: 20px;
+    cursor: crosshair;
+    filter: grayscale(1);
+    transition: all .2s cubic-bezier(0.77, -0.01, 0, 1.02) .2s;
 }
 
-.profile .text-me{
+.card-left:hover .photo {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.card-right {
+    position: relative;
+    width: 50rem;
+    height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.card-right h2 {
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
     color: var(--primaryText);
+}
+
+.card-right .description {
+    color: var(--primaryText);
+    width: 80%;
+    font-weight: 200;
+}
+
+.card-right .my-hobbies {
+    color: var(--primaryText);
+}
+.card-right .my-hobbies .icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-right .my-hobbies .icons .icon {
     font-size: 2em;
 }

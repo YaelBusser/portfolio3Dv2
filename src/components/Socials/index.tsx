@@ -9,6 +9,7 @@ const Socials = () => {
                 <a href="https://github.com/yaelbusser" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGithub} className="icon-social"/>
                 </a>
+                <div className={"lateral-bar"}/>
                 <a href="https://linkedin.com/in/ya%C3%ABl-busser/" target="_blank"
                    rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faLinkedin} className="icon-social"/>
