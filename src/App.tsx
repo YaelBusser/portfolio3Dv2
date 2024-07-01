@@ -1,14 +1,31 @@
 import {BrowserRouter as Router} from 'react-router-dom';
 import Routes from "./routes";
 import "./index.css";
-import {Suspense, useEffect, useState} from "react";
+import {Suspense} from "react";
 import Cursor from "./components/Cursor";
-import Loader from "./components/Loader";
 import Nav from "./components/Nav";
-import {useMediaQuery, useTheme} from "@mui/material";
 
 const App = () => {
-    const [isLoaded, setIsLoaded] = useState(false);
+
+    return (
+        <Router>
+            <Suspense fallback={null}>
+                <div className="app">
+
+                    <Nav/>
+                    <Cursor/>
+                    <Routes/>
+                </div>
+            </Suspense>
+        </Router>
+    )
+}
+/*
+import Loader from "./components/Loader";
+import {useMediaQuery, useTheme} from "@mui/material";
+import {Suspense, useEffect, useState} from "react";
+
+ const [isLoaded, setIsLoaded] = useState(false);
     const theme = useTheme();
     const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -27,11 +44,7 @@ const App = () => {
         };
     }, []);
 
-    return (
-        <Router>
-            <Suspense fallback={null}>
-                <div className="app">
-                    {
+{
                         !isLoaded && !isMdDown ? (
                             <Loader/>
                         ) : (
@@ -42,10 +55,5 @@ const App = () => {
                             </>
                         )
                     }
-                </div>
-            </Suspense>
-        </Router>
-    )
-}
-
+ */
 export default App
