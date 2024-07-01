@@ -67,8 +67,9 @@ const Home = () => {
     const springY = useSpring(projectsY, {damping: 15, mass: 0.27, stiffness: 100});
     const springZIndex = useSpring(projectsZIndex, {damping: 15, mass: 0.27, stiffness: 100});
 
-    const meOpacity = useTransform(smoothScrollY, [3700, 4100], [1, 0]);
-    const contactOpacity = useTransform(smoothScrollY, [3500, 4000], [0, 1]);
+    const meOpacity = useTransform(scrollPerc, [0.75, 0.9], [1, 0]);
+    const contactOpacity = useTransform(scrollPerc, [0.7, 0.9], [0, 1]);
+
 
     return (
         <motion.div
