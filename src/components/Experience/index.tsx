@@ -1,7 +1,7 @@
 import "./index.css";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBriefcase, faGraduationCap, faRocket, faCode, faServer, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faGraduationCap, faRocket, faCode, faServer } from "@fortawesome/free-solid-svg-icons";
 
 const experiences = [
     {
