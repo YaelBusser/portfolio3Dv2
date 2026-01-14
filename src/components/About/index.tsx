@@ -74,6 +74,14 @@ function ParallaxText({children, baseVelocity = 100}: ParallaxProps) {
 }
 
 const About = () => {
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const top = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top, behavior: "smooth" });
+    };
+
     return (
         <div className={"presentation"}>
             <div className={"content-presentation"}>
@@ -88,13 +96,13 @@ const About = () => {
                     >
                         Mon CV
                     </motion.a>
-                    <motion.a
+                    <motion.button
                         className={"primary-button"}
-                        href="#contact"
+                        onClick={() => scrollToSection("contact")}
                         whileTap={{scale: 0.95}}
                     >
                         Me contacter
-                    </motion.a>
+                    </motion.button>
                 </div>
                 <div className={"container-parallaxtext"}>
                     <ParallaxText baseVelocity={-5}>

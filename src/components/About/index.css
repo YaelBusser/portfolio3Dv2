@@ -153,9 +153,12 @@
         gap: 0.75rem;
     }
 
-    .buttons a {
+    .buttons a,
+    .buttons button {
         justify-content: center;
-        width: 100%;
+        align-self: flex-start;
+        width: auto;
+        max-width: fit-content;
         padding: 0.75em 1.5em;
         font-size: 1rem;
     }
@@ -188,7 +191,11 @@
         line-height: 1.5;
     }
 
-    .buttons a {
+    .buttons a,
+    .buttons button {
+        align-self: flex-start;
+        width: auto;
+        max-width: fit-content;
         padding: 0.8em 1.5em;
         font-size: 0.95rem;
     }

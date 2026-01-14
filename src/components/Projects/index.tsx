@@ -17,6 +17,39 @@ const Projects = () => {
         if (!Number.isFinite(ratio) || ratio <= 0) return;
 
         card.style.setProperty("--card-ratio", ratio.toString());
+
+        // Attendre que le layout soit calculé pour ajuster la largeur selon le contenu réel
+        requestAnimationFrame(() => {
+            const isContain = image.classList.contains("bg-project--contain");
+            if (!isContain || image.naturalWidth === 0) return;
+
+            const cardHeight = card.offsetHeight;
+            const cardWidth = card.offsetWidth;
+            const minCardWidth = parseFloat(getComputedStyle(card).minWidth) || 200;
+
+            // Calculer la taille réelle à laquelle l'image sera affichée avec object-fit: contain
+            const imageNaturalWidth = image.naturalWidth;
+            const imageNaturalHeight = image.naturalHeight;
+            
+            // Calculer l'échelle pour que l'image rentre dans la card (object-fit: contain)
+            const scaleX = cardWidth / imageNaturalWidth;
+            const scaleY = cardHeight / imageNaturalHeight;
+            const scale = Math.min(scaleX, scaleY);
+            
+            // Taille réelle de l'image affichée dans la card
+            const displayedImageWidth = imageNaturalWidth * scale;
+            
+            // Si l'image affichée est plus petite que la card, réduire la card pour correspondre exactement
+            if (displayedImageWidth < cardWidth * 0.95) {
+                // La largeur optimale correspond à la taille réelle de l'image affichée
+                const optimalWidth = Math.max(displayedImageWidth, minCardWidth);
+                
+                if (optimalWidth < cardWidth) {
+                    card.style.width = `${optimalWidth}px`;
+                    card.style.maxWidth = `${optimalWidth}px`;
+                }
+            }
+        });
     };
 
     const handleProjectImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
@@ -31,6 +64,18 @@ const Projects = () => {
                 calculateCardRatio(image);
             }
         });
+
+        // Réajuster les cards lors du redimensionnement
+        const handleResize = () => {
+            imageRefs.current.forEach((image) => {
+                if (image && image.complete && image.naturalWidth > 0) {
+                    calculateCardRatio(image);
+                }
+            });
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
     return (
         <>

@@ -82,10 +82,11 @@
     }
 
     .contact-submit {
-        align-self: stretch;
+        align-self: flex-end;
         font-size: 1rem;
         padding: 0.8rem 1.5rem;
-        width: 100%;
+        width: auto;
+        max-width: fit-content;
     }
 }
 
@@ -98,5 +99,11 @@
 
     .contact-form {
         gap: 1rem;
+    }
+
+    .contact-submit {
+        align-self: flex-end;
+        width: auto;
+        max-width: fit-content;
     }
 }
