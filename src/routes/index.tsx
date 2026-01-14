@@ -16,6 +16,7 @@ const AppRoutes = () => {
         }
     }, [location.pathname]);
 
+
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>

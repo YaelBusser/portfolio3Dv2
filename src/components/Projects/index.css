@@ -1,27 +1,30 @@
 .allProjects {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    --project-card-height: 320px;
+    --project-card-min-width: 200px;
+    --project-card-max-width: 560px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
 }
 
-.project-makee,
-.stg,
-.lactalis,
-.apv {
+.project-card {
+    --card-ratio: 1.6;
     position: relative;
     overflow: hidden;
     border-radius: 16px;
-    aspect-ratio: 16/10;
-    transition: all 0.3s ease;
+    height: var(--project-card-height);
+    width: clamp(
+        var(--project-card-min-width),
+        calc(var(--project-card-height) * var(--card-ratio)),
+        var(--project-card-max-width)
+    );
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-makee:hover,
-.stg:hover,
-.lactalis:hover,
-.apv:hover {
+.project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
@@ -53,9 +56,14 @@
     user-select: none;
 }
 
+.bg-project--contain {
+    object-fit: contain;
+    background-color: var(--secondaryBackground);
+}
+
 .content-project:hover .bg-project {
     filter: grayscale(0%);
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .top {
@@ -135,17 +143,18 @@
 /* Mobile */
 @media screen and (max-width: 768px) {
     .allProjects {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
         gap: 1.5rem;
         padding: 0 0.5rem;
+        --project-card-height: 280px;
+        --project-card-min-width: 100%;
+        --project-card-max-width: 100%;
     }
 
-    .project-makee,
-    .stg,
-    .lactalis,
-    .apv {
-        aspect-ratio: 16/9;
+    .project-card {
         border-radius: 12px;
+        width: 100%;
     }
 
     .content-project {
@@ -172,13 +181,11 @@
     .allProjects {
         gap: 1rem;
         padding: 0;
+        --project-card-height: 220px;
     }
 
-    .project-makee,
-    .stg,
-    .lactalis,
-    .apv {
-        aspect-ratio: 4/3;
+    .project-card {
+        width: 100%;
     }
 
     .top .text {

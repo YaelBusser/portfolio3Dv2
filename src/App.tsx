@@ -6,7 +6,6 @@ import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
 
 const App = () => {
-
     return (
         <Router>
             <Suspense fallback={null}>
