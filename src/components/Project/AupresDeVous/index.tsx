@@ -24,6 +24,11 @@ const AupresDeVous = () => {
                     Application qui met en relation des aidants et des personnes ayant besoin
                     d'aide, avec des annonces claires et une messagerie simple.
                 </p>
+                <img
+                    className="project-cover"
+                    src="/images/aupresdevous.png"
+                    alt="Aperçu du projet Auprès de vous"
+                />
             </header>
 
             <section className="project-section">

@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Makee from '../components/Project/Makee';
 import Lactalis from '../components/Project/Lactalis';
 import AupresDeVous from '../components/Project/AupresDeVous';
+import StG from '../components/Project/StG';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -22,6 +23,7 @@ const AppRoutes = () => {
                 <Route path="/project/makee" element={<Makee />} />
                 <Route path="/project/lactalis" element={<Lactalis />} />
                 <Route path="/project/apv" element={<AupresDeVous />} />
+                <Route path="/project/stg" element={<StG />} />
             </Routes>
         </AnimatePresence>
     );

@@ -24,6 +24,11 @@ const Makee = () => {
                     Makee permet aux organisateurs de creer et gerer des challenges sur mesure,
                     tout en offrant une experience fluide pour les participants.
                 </p>
+                <img
+                    className="project-cover"
+                    src="/images/makee.png"
+                    alt="Aperçu du projet Makee"
+                />
             </header>
 
             <section className="project-section">

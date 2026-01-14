@@ -24,6 +24,11 @@ const Lactalis = () => {
                     Lactalis est une multinationale française de l&apos;industrie agroalimentaire,
                     leader mondial des produits laitiers.
                 </p>
+                <img
+                    className="project-cover"
+                    src="/images/lactalis2.png"
+                    alt="Lactalis Informatique"
+                />
             </header>
 
             <section className="project-section">

@@ -9,6 +9,25 @@ const Projects = () => {
         <>
             <div className={"allProjects"}>
                 <div
+                    className={"stg"}
+                    onClick={() => {
+                        sessionStorage.setItem("homeScroll", String(window.scrollY));
+                        navigate("/project/stg");
+                    }}
+                >
+                    <div className={"content-project"}>
+                        <div className={"top"}>
+                            <p className={"text"}>Alternance - StG<br/>2024-2026 <FontAwesomeIcon icon={faCalendarDays}/>
+                            </p>
+                            <p className={"button-click"}>
+                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={"arrow"}/>
+                                <FontAwesomeIcon icon={faCircle} className={"circle"}/>
+                            </p>
+                        </div>
+                        <img className={"bg-project"} src={"/images/stg2.png"} alt={"StG EBRC Jaguar"}/>
+                    </div>
+                </div>
+                <div
                     className={"project-makee"}
                     onClick={() => {
                         sessionStorage.setItem("homeScroll", String(window.scrollY));
@@ -43,7 +62,7 @@ const Projects = () => {
                                 <FontAwesomeIcon icon={faCircle} className={"circle"}/>
                             </p>
                         </div>
-                        <img className={"bg-project"} src={"/vite.svg"} alt={"Lactalis Informatique"}/>
+                        <img className={"bg-project"} src={"/images/lactalis1.jpg"} alt={"Lactalis Informatique"}/>
                     </div>
                 </div>
                 <div

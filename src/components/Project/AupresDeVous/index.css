@@ -33,6 +33,14 @@
      margin: 0;
      opacity: 0.85;
  }
+
+.project-cover {
+    width: 100%;
+    height: clamp(200px, 30vw, 320px);
+    object-fit: cover;
+    border-radius: 16px;
+    margin-top: 1rem;
+}
  
  .project-section {
      margin-bottom: 2.5rem;
@@ -84,6 +92,11 @@
      .project-detail {
          padding: 5rem 1.25rem 3rem;
      }
+
+    .project-cover {
+        height: 220px;
+        border-radius: 12px;
+    }
  }
  
  @media screen and (max-width: 480px) {
@@ -94,4 +107,8 @@
      .project-section h2 {
          font-size: 1.1rem;
      }
+
+    .project-cover {
+        height: 200px;
+    }
  }
