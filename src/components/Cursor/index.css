@@ -19,3 +19,16 @@
     outline: 1px solid var(--cursor);
     background-color: transparent;
 }
+
+/* Masquer le curseur personnalisé sur les appareils tactiles */
+@media screen and (max-width: 1024px) {
+    .custom-cursor {
+        display: none;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
+}

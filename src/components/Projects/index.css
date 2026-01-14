@@ -1,40 +1,39 @@
 .allProjects {
-    background-color: transparent;
-    display: flex;
-    gap: 3rem;
-    height: 80vh;
-    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.project-makee, .apv {
-    flex-shrink: 0;
-
-}
-
-.project-makee {
-    width: 55rem;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
+.project-makee,
+.lactalis,
 .apv {
-    width: 30rem;
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 16px;
+    aspect-ratio: 16/10;
+    transition: all 0.3s ease;
+}
+
+.project-makee:hover,
+.lactalis:hover,
+.apv:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .content-project {
     height: 100%;
     background-color: var(--secondaryBackground);
     color: white;
-    padding: 2rem;
     font-family: 'Inter', monospace;
     font-weight: 300;
     cursor: pointer;
-    transition: background-color .2s ease-in-out;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .bg-project {
@@ -48,19 +47,13 @@
     object-fit: cover;
     z-index: 1;
     filter: grayscale(100%);
-    transition: all .5s cubic-bezier(0.77, -0.01, 0, 1.02) .2s;
+    transition: all 0.5s cubic-bezier(0.77, -0.01, 0, 1.02);
     user-select: none;
 }
 
-.bg-project:hover {
+.content-project:hover .bg-project {
     filter: grayscale(0%);
-    transform: scale(1.1);
-    /*transition-delay: .2s;*/
-}
-
-.allProjects h1 {
-    font-family: 'Inter', monospace;
-    font-weight: 700;
+    transform: scale(1.05);
 }
 
 .top {
@@ -70,38 +63,38 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 1rem;
+    padding: 1.25rem;
     pointer-events: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
 }
 
 .top .text {
     text-transform: uppercase;
-    letter-spacing: .2em;
-    font-weight: 900;
-    margin-left: 1rem;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .top .button-click {
-    padding: 1rem;
-    background-color: var(--primaryBackground);
+    padding: 0.75rem;
+    background-color: var(--secondaryBackground);
     border-radius: 50%;
-    width: 1rem;
-    height: 1rem;
-    color: var(--secondaryBackground);
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--secondaryText);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.5em;
-}
-
-.top .button-click {
     transition: all 0.3s ease;
-    margin-right: 1rem;
 }
 
+.content-project:hover .button-click {
+    background-color: var(--accent);
+}
 
 .content-project:hover .circle {
     opacity: 0;
@@ -110,17 +103,87 @@
 
 .content-project:hover .arrow {
     opacity: 1;
-    font-size: 2em;
+    font-size: 1rem;
 }
 
 .content-project .arrow {
     opacity: 0;
     font-size: 0;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .content-project .circle {
     opacity: 1;
-    font-size: 1em;
-    transition: all .2s ease-in-out;
+    font-size: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .allProjects {
+        gap: 1.5rem;
+        max-width: 900px;
+    }
+
+    .top .text {
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .allProjects {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .project-makee,
+    .lactalis,
+    .apv {
+        aspect-ratio: 16/9;
+        border-radius: 12px;
+    }
+
+    .content-project {
+        border-radius: 12px;
+    }
+
+    .top {
+        padding: 1rem;
+    }
+
+    .top .text {
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+    }
+
+    .top .button-click {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    .allProjects {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .project-makee,
+    .lactalis,
+    .apv {
+        aspect-ratio: 4/3;
+    }
+
+    .top .text {
+        font-size: 0.75rem;
+    }
+
+    .top .button-click {
+        width: 2rem;
+        height: 2rem;
+        padding: 0.5rem;
+    }
 }

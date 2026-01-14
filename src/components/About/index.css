@@ -14,6 +14,7 @@
     margin-left: 10vw;
     height: fit-content;
     margin-bottom: 15vh;
+    width: min(80vw, 980px);
 }
 
 .content-presentation h1 {
@@ -102,8 +103,97 @@
     margin-right: 30px;
 }
 
-@media screen and (max-width: 900px) {
+/* Tablet */
+@media screen and (max-width: 1024px) {
     .content-presentation {
-        width: 100vw;
+        margin-left: 5vw;
+        width: min(85vw, 900px);
+    }
+
+    .content-presentation h1 {
+        font-size: 4em;
+    }
+
+    .content-presentation p {
+        font-size: 1.5em;
+    }
+
+    .parallax .scroller {
+        font-size: 48px;
+    }
+}
+
+/* Mobile landscape / Small tablet */
+@media screen and (max-width: 768px) {
+    .presentation {
+        overflow-x: hidden;
+    }
+
+    .content-presentation {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        width: calc(100vw - 3rem);
+        margin-bottom: 10vh;
+    }
+
+    .content-presentation h1 {
+        font-size: 2.5em;
+        white-space: normal;
+        line-height: 1.2;
+    }
+
+    .content-presentation p {
+        font-size: 1.3em;
+        line-height: 1.6;
+    }
+
+    .buttons {
+        flex-direction: column;
+        height: auto;
+        gap: 0.75rem;
+    }
+
+    .buttons a {
+        justify-content: center;
+        width: 100%;
+        padding: 0.75em 1.5em;
+        font-size: 1rem;
+    }
+
+    .parallax .scroller {
+        font-size: 28px;
+    }
+
+    .container-parallaxtext {
+        bottom: 0.5rem;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .content-presentation {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: calc(100vw - 2rem);
+        margin-bottom: 15vh;
+    }
+
+    .content-presentation h1 {
+        font-size: 2.2em;
+        line-height: 1.15;
+    }
+
+    .content-presentation p {
+        font-size: 1.1em;
+        line-height: 1.5;
+    }
+
+    .buttons a {
+        padding: 0.8em 1.5em;
+        font-size: 0.95rem;
+    }
+
+    .parallax .scroller {
+        font-size: 20px;
     }
 }

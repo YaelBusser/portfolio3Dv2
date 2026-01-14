@@ -42,3 +42,27 @@
 .toggleTheme {
     z-index: 1;
 }
+
+/* Mobile landscape / Small tablet */
+@media screen and (max-width: 768px) {
+    .block-theme {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .toggleTheme {
+        --size: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .block-theme {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .toggleTheme {
+        --size: 1.25rem;
+    }
+}

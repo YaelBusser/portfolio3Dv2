@@ -28,3 +28,55 @@
     background-color: var(--primaryText);
     border-radius: 50%;
 }
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .socials {
+        left: 1rem;
+    }
+
+    .socials .icon-social {
+        font-size: 2em;
+    }
+}
+
+/* Mobile landscape / Small tablet */
+@media screen and (max-width: 768px) {
+    .socials {
+        left: auto;
+        right: auto;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 0;
+        background-color: var(--primaryBackground);
+    }
+
+    .content-socials {
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .socials .content-socials .lateral-bar {
+        width: 3rem;
+        height: 0.1rem;
+    }
+
+    .socials .icon-social {
+        font-size: 1.5em;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .socials .icon-social {
+        font-size: 1.25em;
+    }
+
+    .socials .content-socials .lateral-bar {
+        width: 2rem;
+    }
+}

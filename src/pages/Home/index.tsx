@@ -1,119 +1,140 @@
 // Home.js
-import {useRef, useState, useLayoutEffect, useCallback, useEffect} from 'react';
-import ResizeObserver from 'resize-observer-polyfill';
-import {motion, useTransform, useSpring, useMotionValue, useScroll} from 'framer-motion';
 import './index.css';
-import {useScrollPercentage} from 'react-scroll-percentage';
+import { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Hero from '../../components/Scenes/Hero';
 import About from '../../components/About';
 import Projects from '../../components/Projects';
 import Me from '../../components/Me';
 import Socials from '../../components/Socials';
 import Contact from "../../components/Contact";
+import Experience from "../../components/Experience";
+import Skills from "../../components/Skills";
+
+interface StackSectionProps {
+    children: React.ReactNode;
+    className?: string;
+    index: number;
+    id: string;
+}
+
+const StackSection = ({ children, className = '', index, id }: StackSectionProps) => {
+    const ref = useRef<HTMLDivElement>(null);
+    
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start 85%", "start 15%"]
+    });
+
+    // Transform scroll progress to Y position and opacity
+    const y = useTransform(scrollYProgress, [0, 1], ["60%", "0%"]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.6, 1, 1]);
+
+    // First section doesn't need animation
+    if (index === 0) {
+        return (
+            <div id={id} ref={ref} className={`stack-section ${className}`} style={{ zIndex: index + 1 }}>
+                {children}
+            </div>
+        );
+    }
+
+    return (
+        <div id={id} ref={ref} className="stack-section-wrapper">
+            <motion.div 
+                className={`stack-section ${className}`}
+                style={{ 
+                    y,
+                    opacity,
+                    zIndex: index + 1,
+                }}
+            >
+                {children}
+            </motion.div>
+        </div>
+    );
+};
 
 const pageTransition = {
-    initial: {opacity: 0, y: 100},
-    animate: {opacity: 1, y: 0, transition: {duration: 0.5}},
-    exit: {opacity: 0, y: -100, transition: {duration: 0.5}},
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.35, ease: "easeIn" } },
 };
 
 const Home = () => {
-    const scrollRef = useRef<any>(null);
-    const ghostRef = useRef<any>(null);
-    const [scrollRange, setScrollRange] = useState(0);
-    const [viewportW, setViewportW] = useState(0);
-    const scrollPerc = useMotionValue(0);
-
-    useLayoutEffect(() => {
-        if (scrollRef.current) {
-            setScrollRange(scrollRef.current.scrollWidth);
-        }
-    }, [scrollRef]);
-
-    const onResize = useCallback((entries: any) => {
-        for (let entry of entries) {
-            setViewportW(entry.contentRect.width);
+    useEffect(() => {
+        const savedScroll = sessionStorage.getItem("homeScroll");
+        if (savedScroll) {
+            const top = Number(savedScroll);
+            if (!Number.isNaN(top)) {
+                window.scrollTo({ top, left: 0, behavior: "auto" });
+            }
+            sessionStorage.removeItem("homeScroll");
         }
     }, []);
 
-    useLayoutEffect(() => {
-        const resizeObserver = new ResizeObserver((entries) => onResize(entries));
-        resizeObserver.observe(ghostRef.current);
-        return () => resizeObserver.disconnect();
-    }, [onResize]);
-
-    const {scrollY} = useScroll();
-    const smoothScrollY = useSpring(scrollY, {
-        stiffness: 2000,
-        damping: 120,
-    });
-
-    const aboutOpacity = useTransform(smoothScrollY, [0, 2000], [1, 0]);
-
-    const [containerRef, percentage] = useScrollPercentage({
-        threshold: 0.1,
-    });
-
-    useEffect(() => {
-        scrollPerc.set(percentage);
-    }, [percentage]);
-
-    const transformX = useTransform(scrollPerc, [-0.3, 0.55], [3000, -(scrollRange - viewportW)]);
-    const projectsOpacity = useTransform(scrollPerc, [0.6, 0.8], [1, -1]);
-    const projectsZIndex = useTransform(scrollPerc, [0.5, 0.75], [-1, 1]);
-    const projectsY = useTransform(scrollPerc, [0, 5], ['0%', '0%']);
-    const springX = useSpring(transformX, {damping: 15, mass: 0.27, stiffness: 100});
-    const springOpacity = useSpring(projectsOpacity, {damping: 15, mass: 0.27, stiffness: 100});
-    const springY = useSpring(projectsY, {damping: 15, mass: 0.27, stiffness: 100});
-    const springZIndex = useSpring(projectsZIndex, {damping: 15, mass: 0.27, stiffness: 100});
-
-    const meOpacity = useTransform(scrollPerc, [0.75, 0.9], [1, 0]);
-    const contactOpacity = useTransform(scrollPerc, [0.7, 0.9], [0, 1]);
-
-
     return (
         <motion.div
-            ref={containerRef}
+            className="home-container"
             variants={pageTransition}
             initial="initial"
             animate="animate"
             exit="exit"
         >
-            <Socials/>
-            <div className="hero">
-                <Hero/>
-            </div>
-            <div className="scroll-container">
-                <motion.section id="about" className="about" style={{opacity: aboutOpacity}}>
-                    <About/>
-                </motion.section>
-            </div>
-            <div className="scroll-container">
-                <motion.section
-                    ref={scrollRef}
-                    style={{x: springX, opacity: springOpacity, zIndex: springZIndex, y: springY}}
-                    className="projects-container"
-                >
-                    <Projects/>
-                </motion.section>
-            </div>
-            <div ref={ghostRef} style={{height: scrollRange}} className="ghost"/>
-            <div className="scroll-container">
-                <motion.div
-                    className="me"
-                    style={{opacity: meOpacity}}
-                >
-                    <Me/>
-                </motion.div>
-            </div>
-            <div className="scroll-container">
-                <motion.div
-                    className="contact"
-                    style={{opacity: contactOpacity}}
-                >
-                    <Contact/>
-                </motion.div>
-            </div>
+            <Socials />
+            
+            {/* Section 1: Hero */}
+            <StackSection id="hero" index={0} className="hero-section">
+                <Hero />
+                <About />
+            </StackSection>
+
+            {/* Section 2: Projets */}
+            <StackSection id="projects" index={1} className="projects-section">
+                <div className="section-content">
+                    <div className="section-title">
+                        <h2>Mes Projets</h2>
+                    </div>
+                    <Projects />
+                </div>
+            </StackSection>
+
+            {/* Section 3: Qui suis-je */}
+            <StackSection id="about-me" index={2} className="me-section">
+                <div className="section-content">
+                    <Me />
+                </div>
+            </StackSection>
+
+            {/* Section 4: Mon Parcours */}
+            <StackSection id="experience" index={3} className="experience-section">
+                <div className="section-content">
+                    <div className="section-title">
+                        <h2>Mon Parcours</h2>
+                    </div>
+                    <Experience />
+                </div>
+            </StackSection>
+
+            {/* Section 5: Compétences */}
+            <StackSection id="skills" index={4} className="skills-section">
+                <div className="section-content">
+                    <div className="section-title">
+                        <h2>Mes Compétences</h2>
+                    </div>
+                    <Skills />
+                </div>
+            </StackSection>
+
+            {/* Section 6: Contact */}
+            <StackSection id="contact" index={5} className="contact-section">
+                <div className="section-content">
+                    <div className="section-title">
+                        <h2>Me Contacter</h2>
+                    </div>
+                    <Contact />
+                </div>
+            </StackSection>
         </motion.div>
     );
 };

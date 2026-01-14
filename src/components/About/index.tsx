@@ -77,27 +77,35 @@ const About = () => {
     return (
         <div className={"presentation"}>
             <div className={"content-presentation"}>
-                <h1>Hi, I'm <br/>Yaël Busser</h1>
-                <p>Junior web & mobile developer</p>
+                <h1>Salut, je suis <br/>Yaël Busser</h1>
+                <p>Développeur fullstack</p>
                 <div className={"buttons"}>
                     <motion.a
                         className={"secondary-button"}
                         href="/files/cv_yael_busser.pdf"
-                        download="Yael_Busser_Resume.pdf"
+                        download="CV_Yael_Busser.pdf"
                         whileTap={{scale: 0.95}}
                     >
-                        My resume
+                        Mon CV
                     </motion.a>
                     <motion.a
                         className={"primary-button"}
+                        href="#contact"
                         whileTap={{scale: 0.95}}
                     >
-                        Get in touch
+                        Me contacter
                     </motion.a>
                 </div>
                 <div className={"container-parallaxtext"}>
-                    <ParallaxText baseVelocity={-5}>JS PHP HTML CSS LARAVEL REACT-NATIVE</ParallaxText>
-                    <ParallaxText baseVelocity={5}>REACT VUEJS MATERIALUI C# THREEJS R3F FRAMER-MOTION</ParallaxText>
+                    <ParallaxText baseVelocity={-5}>
+                        HTML CSS JS PHP WORDPRESS REACT REACT-NATIVE VUEJS 3 NEXT TAILWIND THREEJS R3F
+                    </ParallaxText>
+                    <ParallaxText baseVelocity={5}>
+                        NODEJS EXPRESS LARAVEL API SQL NOSQL MYSQL MARIADB MONGODB C# C++ PYTHON
+                    </ParallaxText>
+                    <ParallaxText baseVelocity={-4}>
+                        MATERIALUI FRAMER-MOTION METHODE AGILE GESTION DE PROJET MANAGEMENT
+                    </ParallaxText>
                 </div>
             </div>
         </div>

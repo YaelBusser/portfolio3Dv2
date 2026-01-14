@@ -5,8 +5,12 @@ body {
     font-family: 'Inter', monospace;
     font-weight: 400;
     overscroll-behavior: none;
-    -ms-overflow-style: none;
-    scroll-snap-type: y mandatory;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -50,13 +54,17 @@ small {
 }
 
 :root[data-theme="light"] {
-    --cursor: #e3e3e3;
-    --primaryText: #1f1f1f;
-    --secondaryText: #e3e3e3;
-    --primaryBackground: #e3e3e3;
-    --secondaryBackground: #1f1f1f;
-    --secondary: rgba(0, 0, 0, .3);
-    --accent: #34fbfe;
+    --cursor: #1f1f1f;
+    --primaryText: #1a1a1a;
+    --secondaryText: #ffffff;
+    --primaryBackground: #f8f9fa;
+    --secondaryBackground: #1a1a1a;
+    --secondary: rgba(0, 0, 0, .15);
+    --accent: #0891b2;
+    --accentLight: rgba(8, 145, 178, 0.1);
+    --cardBg: rgba(0, 0, 0, 0.03);
+    --cardBorder: rgba(0, 0, 0, 0.1);
+    --cardBgHover: rgba(8, 145, 178, 0.05);
     --font-scale: 1.333;
     --bgBlur: rgba(0,0,0,0.5);
 }
@@ -67,8 +75,12 @@ small {
     --secondaryText: #1f1f1f;
     --primaryBackground: #1f1f1f;
     --secondaryBackground: #e3e3e3;
-    --secondary: rgba(0, 0, 0, .3);
+    --secondary: rgba(255, 255, 255, .1);
     --accent: #34fbfe;
+    --accentLight: rgba(52, 251, 254, 0.1);
+    --cardBg: rgba(255, 255, 255, 0.03);
+    --cardBorder: rgba(255, 255, 255, 0.1);
+    --cardBgHover: rgba(52, 251, 254, 0.05);
     --font-scale: 1.333;
     --bgBlur: rgba(255,255,255,0.5);
 }
@@ -90,21 +102,6 @@ small {
 
     --border1: 1rem;
     --border05: 0.5rem;
-}
-
-
-::-webkit-scrollbar {
-    margin-left: 1em;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 3px;
-    background-color: rgba(131, 131, 131, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(129, 129, 129, 0.5);
 }
 
 body {
@@ -183,6 +180,97 @@ body {
 }
 
 
-@media screen and (max-width: 900px) {
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
 
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    :root {
+        --margin-lg: 0 6%;
+        --margin-md: 0 4%;
+    }
+}
+
+/* Mobile landscape / Small tablet */
+@media screen and (max-width: 768px) {
+    html, body {
+        scroll-snap-type: none;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    :root {
+        --margin-lg: 0 4%;
+        --margin-md: 0 3%;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .tertiary-button {
+        padding: 0.6em 1.5em;
+        font-size: 1rem;
+    }
+
+    .app {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    :root {
+        --margin-lg: 0 3%;
+        --margin-md: 0 2%;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .tertiary-button {
+        padding: 0.6em 1.2em;
+        font-size: 0.95rem;
+    }
 }
